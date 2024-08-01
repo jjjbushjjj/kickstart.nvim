@@ -182,7 +182,11 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- Move between open buffers and close
 vim.keymap.set('n', '[b', '<cmd>bp<CR>')
 vim.keymap.set('n', ']b', '<cmd>bn<CR>')
-vim.keymap.set('n', '<leader>q', '<cmd>bd<CR>')
+vim.keymap.set('n', '[q', '<cmd>bd<CR>')
+
+-- Quicklist jumps
+vim.keymap.set('n', ']n', '<cmd>lnext<CR>')
+vim.keymap.set('n', '[p', '<cmd>lprev<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -705,7 +709,7 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
